@@ -8,8 +8,8 @@
 
 (3) Exécution:
 
-    - Extraire le fichier .zip.
-    - Se placer à la racine du dossier extrait.
+    - Cloner le repo Git
+    - Se placer à la racine du dossier cloné.
     - dans le terminal saisir la commande : npm install. 
     - Ensuite la commande npm start.
     - dans le naviguateur saisir l'url : http://localhost:3000.
