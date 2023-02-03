@@ -67,20 +67,20 @@ const App = () => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" fixed>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
       >
         <CircularProgress color="inherit" />
       </Backdrop>
-      <Box>
+      <Box sx={{ m: 3 }}>
         <TableContainer>
-          <Typography variant="h3" gutterBottom>
+          <Typography sx={{p:3}} variant="h4" gutterBottom>
             Tableau des entraînements
           </Typography>
           <Table sx={{ minWidth: 650 }} stickyHeader aria-label="sticky table">
-            <TableHead>
+            <TableHead className='drop-shadow-md'>
               <TableRow>
                 <TableCell>Title</TableCell>
                 <TableCell align="right">Category</TableCell>
