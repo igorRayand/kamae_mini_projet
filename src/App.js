@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Container, Button, Chip, Typography, Box } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Container, Button, Chip, Typography, Box, Backdrop, CircularProgress } from '@mui/material';
 import { useState } from 'react';
 
 var tab = [
@@ -52,16 +52,28 @@ var tab = [
 const App = () => {
 
   const [list, setList] = useState(tab);
+  const [open, setOpen] = useState(false);
+
 
   const changeState = (row) => {
-    const random = Math.random();
-    const i = tab.indexOf(row);
-    random < 0.5 ? tab[i].status = 'Victoire' : tab[i].status = 'Défaite';
-    setList([...tab]);
+    setOpen(true);
+    setTimeout(() => {
+      const random = Math.random();
+      const i = tab.indexOf(row);
+      random < 0.5 ? tab[i].status = 'Victoire' : tab[i].status = 'Défaite';
+      setList([...tab]);
+      setOpen(false);
+    }, 300);
   };
 
   return (
     <Container maxWidth="md">
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Box>
         <TableContainer>
           <Typography variant="h3" gutterBottom>
